@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>F# first steps · Quick reference</title>
+  <link rel="stylesheet" href="../assets/course.css">
+</head>
+<body><main>
+  <nav aria-label="Course navigation">
+    <a href="../index.html">Start here</a>
+    <a href="../lessons/0001-your-first-script.html">Lesson 01</a>
+  </nav>
+  <p class="eyebrow">Reference · Lesson 01 only</p>
+  <h1>Name some text.<br>Print its value.</h1>
+  <pre><code>let customerName = "Sam"
+printfn "%s" customerName</code></pre>
+  <p class="caption">Output</p>
+  <pre class="output"><code>Sam</code></pre>
+  <table>
+    <thead><tr><th>Code</th><th>Meaning</th></tr></thead>
+    <tbody>
+      <tr><td><code>let name = value</code></td><td>Give a name to a value.</td></tr>
+      <tr><td><code>"Sam"</code></td><td>A string: text enclosed in double quotes.</td></tr>
+      <tr><td><code>customerName</code></td><td>Use the value named earlier.</td></tr>
+      <tr><td><code>"customerName"</code></td><td>Use these literal characters as text.</td></tr>
+      <tr><td><code>printfn "%s" customerName</code></td><td>Print the named string on a line.</td></tr>
+    </tbody>
+  </table>
+  <h2>Run a saved file</h2>
+  <p>In PowerShell:</p>
+  <pre><code>cd C:\dev\fsharp
+dotnet fsi learning/exercises/0001-first-script/demo.fsx</code></pre>
+  <dl>
+    <dt><strong>Script</strong></dt><dd>A file of code we can execute directly. Our F# scripts end in <code>.fsx</code>.</dd>
+    <dt><strong>Value</strong></dt><dd>A piece of data, such as the text <code>"Sam"</code>.</dd>
+    <dt><strong>Name</strong></dt><dd>A label in the code that refers to a value, such as <code>customerName</code>.</dd>
+    <dt><strong>String</strong></dt><dd>The programming term for text.</dd>
+  </dl>
+  <footer><p>Sources:
+    <a href="https://learn.microsoft.com/en-us/dotnet/fsharp/language-reference/functions/let-bindings">Naming values</a>,
+    <a href="https://learn.microsoft.com/en-us/dotnet/fsharp/language-reference/plaintext-formatting">printing text</a>,
+    <a href="https://learn.microsoft.com/en-us/dotnet/fsharp/tools/fsharp-interactive/">running scripts</a>.
+    This sheet grows only as we introduce new ideas.</p></footer>
+</main></body>
+</html>

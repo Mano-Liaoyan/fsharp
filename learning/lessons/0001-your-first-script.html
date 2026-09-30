@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>01 · Your first F# script</title>
+  <link rel="stylesheet" href="../assets/course.css">
+  <script src="../assets/quiz.js" defer></script>
+</head>
+<body>
+<main>
+  <nav aria-label="Course navigation">
+    <a href="../index.html">Start here</a>
+    <a href="../reference/fsharp-basics.html">Today's reference</a>
+  </nav>
+  <header>
+    <p class="eyebrow">Lesson 01 · Start from zero F#</p>
+    <h1>Run two lines.<br>Understand both.</h1>
+    <p class="meta">About 10 minutes · No previous F# knowledge needed</p>
+    <p>Our eventual goal is a business application. Today, we will give a
+      customer's name to the computer and display it. That is the whole exercise.</p>
+  </header>
+
+  <section aria-labelledby="run">
+    <h2 id="run">1. Run your first script</h2>
+    <p>F# is pronounced <em>F sharp</em>. A file ending in <code>.fsx</code> is an
+      F# script: a text file containing F# code that we can run directly.</p>
+    <p>Open <a href="../exercises/0001-first-script/demo.fsx">demo.fsx</a> in your
+      code editor. It contains exactly these two lines:</p>
+    <p class="caption">F# code — this goes in the .fsx file</p>
+    <pre><code>let customerName = "Sam"
+printfn "%s" customerName</code></pre>
+    <p>Open a PowerShell terminal. Paste these commands there:</p>
+    <p class="caption">Terminal commands — run these in PowerShell</p>
+    <pre><code>cd C:\dev\fsharp
+dotnet fsi learning/exercises/0001-first-script/demo.fsx</code></pre>
+    <p><code>cd</code> selects the project folder. <code>dotnet fsi</code> starts
+      the F# script runner; the path after it selects our file. The required tools
+      are already installed on this machine.
+      <a href="https://learn.microsoft.com/en-us/dotnet/fsharp/tools/fsharp-interactive/">Microsoft's script-running reference</a>.</p>
+    <p class="caption">Expected terminal output</p>
+    <pre class="output"><code>Sam</code></pre>
+    <p>If you see <code>Sam</code>, you have run your first F# program.</p>
+  </section>
+
+  <section aria-labelledby="name">
+    <h2 id="name">2. Read the first line</h2>
+    <pre><code>let customerName = "Sam"</code></pre>
+    <p>Read this as: <strong>give the name <code>customerName</code> to the text
+      <code>"Sam"</code></strong>.</p>
+    <table>
+      <thead><tr><th>Piece</th><th>Meaning here</th></tr></thead>
+      <tbody>
+        <tr><td><code>let</code></td><td>Introduce a name for a value.</td></tr>
+        <tr><td><code>customerName</code></td><td>The name we chose. We can use it on the next line.</td></tr>
+        <tr><td><code>=</code></td><td>Connect that name to the value on the right.</td></tr>
+        <tr><td><code>"Sam"</code></td><td>A text value. The double quotes mark where the text begins and ends.</td></tr>
+      </tbody>
+    </table>
+    <p>Programmers call a text value a <strong>string</strong>. This line gives the
+      text a name; it does not display anything by itself.
+      <a href="https://learn.microsoft.com/en-us/dotnet/fsharp/language-reference/functions/let-bindings">Microsoft's explanation of <code>let</code></a>.</p>
+  </section>
+
+  <section aria-labelledby="print">
+    <h2 id="print">3. Read the second line</h2>
+    <pre><code>printfn "%s" customerName</code></pre>
+    <p>Read this as: <strong>display the text named <code>customerName</code></strong>.</p>
+    <table>
+      <thead><tr><th>Piece</th><th>Meaning here</th></tr></thead>
+      <tbody>
+        <tr><td><code>printfn</code></td><td>F#'s built-in function for printing a line of text.</td></tr>
+        <tr><td><code>"%s"</code></td><td>A printing template. The marker <code>%s</code> means “put a string here.”</td></tr>
+        <tr><td><code>customerName</code></td><td>The value to put into that template. It supplies <code>"Sam"</code>.</td></tr>
+      </tbody>
+    </table>
+    <p>The spaces separate the function name and what we pass to it. Keep the
+      line in this order. The output is <code>Sam</code>, without the quotation
+      marks or the <code>%s</code> marker.
+      <a href="https://learn.microsoft.com/en-us/dotnet/fsharp/language-reference/plaintext-formatting">Microsoft's printing reference</a>.</p>
+  </section>
+
+  <section aria-labelledby="predict">
+    <h2 id="predict">4. Check one small distinction</h2>
+    <p><code>customerName</code> uses the value we named earlier.
+      <code>"customerName"</code>, with quotes, is the literal text inside those quotes.</p>
+    <pre><code>let customerName = "Sam"
+printfn "%s" "customerName"</code></pre>
+    <form class="quiz" data-quiz data-answer="literal"
+      data-correct="Yes. The quotes mean print the literal text customerName. Remove those quotes to use the named value Sam."
+      data-retry="Look at the quotes on the second line. They make customerName literal text, just as the quotes around Sam do on the first line.">
+      <fieldset>
+        <legend>What does this changed program print?</legend>
+        <label><input type="radio" name="printed-text" value="value"><code>Sam</code></label>
+        <label><input type="radio" name="printed-text" value="literal"><code>customerName</code></label>
+        <label><input type="radio" name="printed-text" value="template"><code>%s</code></label>
+      </fieldset>
+      <button type="submit">Check my answer</button>
+      <p class="feedback" data-feedback role="status" aria-live="polite"></p>
+    </form>
+    <noscript><p>Quiz feedback needs JavaScript. You can also run the changed program to check your prediction.</p></noscript>
+  </section>
+
+  <section aria-labelledby="practice">
+    <h2 id="practice">5. Make one change yourself</h2>
+    <p>Open <a href="../exercises/0001-first-script/practice.fsx">practice.fsx</a>.
+      It contains:</p>
+    <pre><code>let customerName = "TODO"
+printfn "%s" customerName</code></pre>
+    <ol>
+      <li>Replace the text <code>TODO</code> with <code>Ada</code>. Keep the double quotes.</li>
+      <li>Save the file.</li>
+      <li>Run this command in the terminal:</li>
+    </ol>
+    <pre><code>dotnet fsi learning/exercises/0001-first-script/practice.fsx</code></pre>
+    <p class="caption">Your program should print</p>
+    <pre class="output"><code>Ada</code></pre>
+    <details><summary>If the result is different</summary>
+      <p>If you still see <code>TODO</code>, save your changes and check that you ran
+        <code>practice.fsx</code>. If you get an error, check that both quotes are
+        present and that <code>customerName</code> is spelled identically on both lines.</p>
+      <p>Paste any confusing error into our chat and I will walk through it with you.</p>
+    </details>
+    <p>Finally, change only the text on the first line to a different name.
+      Predict the output, save, and run again.</p>
+  </section>
+
+  <footer>
+    <p><strong>Your checkpoint:</strong> explain what each of the two lines does
+      and why quotation marks change the quiz's output. Ask me about any word or symbol
+      that is still unclear, or say <strong>/teach review my exercise</strong>.</p>
+    <p><strong>Next study day:</strong> try writing the two lines from memory, then
+      use <a href="../reference/fsharp-basics.html">today's reference</a> to check them.</p>
+    <p><strong>Primary reading, after practice:</strong>
+      <a href="https://learn.microsoft.com/en-us/dotnet/fsharp/language-reference/functions/let-bindings">Microsoft's <code>let</code> reference</a>.
+      Read the opening explanation and the simple <code>let i = 1</code> example;
+      the rest is for later lessons.</p>
+  </footer>
+</main>
+</body>
+</html>
